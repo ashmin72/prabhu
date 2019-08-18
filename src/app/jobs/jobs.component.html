@@ -1,0 +1,76 @@
+<mat-toolbar>
+  <span>{{service.form.controls['$key'].value?"Edit Job":"New Job"}}</span>
+  <span class="fill-remaining-space"></span>
+  <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1">
+    <mat-icon>clear</mat-icon>
+  </button>
+</mat-toolbar>
+<form [formGroup]="service.form" class="normal-form" (submit)="onSubmit()">
+  <mat-grid-list cols="2" rowHeight="600px">
+    <mat-grid-tile>
+      <div class="controles-container">
+        <input type="hidden" formControlName="$key">
+        <mat-form-field>
+          <input formControlName="companyName" matInput placeholder="Company Name">
+          <mat-error>This field is required!</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input formControlName="category" matInput placeholder="Job Category">
+        </mat-form-field>
+        <mat-form-field>
+          <input formControlName="vacancy" matInput placeholder="Vacancy">
+        </mat-form-field>
+        <mat-form-field>
+          <input formControlName="jobType" matInput placeholder="Job Type">
+        </mat-form-field>
+        <mat-form-field>
+          <input formControlName="location" matInput placeholder="Location">
+        </mat-form-field>
+        <mat-form-field>
+          <input formControlName="salary" matInput placeholder="Salary">
+        </mat-form-field>
+        <mat-form-field>
+          <input formControlName="education" matInput placeholder="Education">
+        </mat-form-field>
+        <mat-form-field>
+          <input formControlName="experience" matInput placeholder="Experience">
+        </mat-form-field>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="controles-container">
+        <mat-form-field>
+          <input formControlName="gender" matInput placeholder="Gender">
+        </mat-form-field>
+        <mat-form-field>
+          <input formControlName="viewed" matInput placeholder="Total views">
+        </mat-form-field>
+        <mat-form-field>
+          <input formControlName="daysLeft" matInput placeholder="Days Left">
+        </mat-form-field>
+        <mat-form-field>
+          <input formControlName="skills" matInput placeholder="Job skills">
+        </mat-form-field>
+        <mat-form-field>
+          <input formControlName="industry" matInput placeholder="Industry">
+        </mat-form-field>
+        <mat-form-field>
+          <input formControlName="title" matInput placeholder="Job title">
+        </mat-form-field>
+        <mat-form-field>
+          <input formControlName="postedOn" matInput [matDatepicker]="picker" placeholder="Posted on">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+          <input formControlName="deadline" matInput [matDatepicker]="picker1" placeholder="Deadline">
+          <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+          <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+        <div class="button-row">
+          <button mat-raised-button color="primary" type="submit" [disabled]="service.form.invalid">Submit</button>
+        </div>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</form>

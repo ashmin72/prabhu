@@ -1,0 +1,22 @@
+  <mat-toolbar color="primary">
+
+    <div>
+      <a routerLink="/">HELPINC</a>
+    </div>
+    <div fxFlex fxLayout fxLayoutAlign="flex-end">
+      <ul fxLayout fxLayoutGap="10px" class="navigation-items">
+        <li *ngIf="!isAuth">
+          <a routerLink="/signup">Signup</a>
+        </li>
+        <li *ngIf="!isAuth">
+          <a routerLink="/login">Login</a>
+        </li>
+        <li *ngIf="isAuth">
+          <a routerLink="/job">Jobs</a>
+        </li>
+        <li *ngIf="isAuth">
+          <a style="cursor: pointer" (click)="onLogout()">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </mat-toolbar>
